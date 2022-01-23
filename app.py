@@ -3,7 +3,7 @@ import os, time, scrapy
 from scrapy.crawler import CrawlerProcess
 
 app = Flask(__name__)
-process = CrawlerProcess()
+
 
 cripto_lista = []
 
@@ -45,9 +45,10 @@ class CriptoflaskSpider(scrapy.Spider):
 
 #para chamar o crawler pelo script
 def chamar_spider():
-    process.start()
     process.crawl(CriptoflaskSpider)
+    process.start()
 
 if __name__ == '__main__':
+    process = CrawlerProcess()
     #rodando o web
     app.run(debug=True)
