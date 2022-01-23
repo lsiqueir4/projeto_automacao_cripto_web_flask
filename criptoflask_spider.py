@@ -1,6 +1,7 @@
 #from urllib.request import Request
 import scrapy
 import time
+from app import cripto_lista
 
 links = ['bombcrypto',
         'cryptocars',
@@ -9,6 +10,8 @@ links = ['bombcrypto',
         'cryptoguards',
         'bitcoin'
         ]
+
+
 
 class CriptoflaskSpiderSpider(scrapy.Spider):
     custom_settings = {
@@ -19,7 +22,7 @@ class CriptoflaskSpiderSpider(scrapy.Spider):
     }
     
     name = 'criptoflask_spider'
-    start_urls = [f'https://coinmarketcap.com/pt-br/currencies/{i}/' for i in links ]
+    start_urls = [f'https://coinmarketcap.com/pt-br/currencies/{i}/' for i in cripto_lista]
     
     
     def parse(self, response):
@@ -28,4 +31,5 @@ class CriptoflaskSpiderSpider(scrapy.Spider):
             'sigla' : response.css('.nameSymbol ::text').get(),
             'cotacao' : response.css('.priceValue span ::text').get()
             }
+        time.sleep(2)
         
