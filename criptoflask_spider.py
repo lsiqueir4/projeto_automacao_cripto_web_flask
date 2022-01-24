@@ -1,7 +1,7 @@
 #from urllib.request import Request
 import scrapy
 import time
-from app import cripto_lista
+from scrapy.crawler import CrawlerProcess
 
 links = ['bombcrypto',
         'cryptocars',
@@ -11,18 +11,16 @@ links = ['bombcrypto',
         'bitcoin'
         ]
 
-
-
-class CriptoflaskSpiderSpider(scrapy.Spider):
+class CriptoflaskSpider(scrapy.Spider):
     custom_settings = {
         'DOWNLOADER_MIDDLEWARES' : {
                 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
                 'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
-            }
+            }, 'DOWNLOAD_DELAY' : 1
     }
     
     name = 'criptoflask_spider'
-    start_urls = [f'https://coinmarketcap.com/pt-br/currencies/{i}/' for i in cripto_lista]
+    start_urls = [f'https://coinmarketcap.com/pt-br/currencies/{i}/' for i in links]
     
     
     def parse(self, response):
@@ -32,4 +30,11 @@ class CriptoflaskSpiderSpider(scrapy.Spider):
             'cotacao' : response.css('.priceValue span ::text').get()
             }
         time.sleep(2)
+
+#para chamar o crawler pelo script
+# def chamar_spider():
+#         process = CrawlerProcess()
+#         process.crawl(CriptoflaskSpider)
+#         process.start()
         
+

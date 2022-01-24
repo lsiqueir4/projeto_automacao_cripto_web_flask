@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 
 <html lang="pt-BR">
-
+  <nav class="navbar navbar-dark bg-dark bg-light">
+    <a class="navbar-brand" href="/">CriptoFlask</a>
+  </nav>
+  
 <head>
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,32 +13,35 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark bg-light">
-        <a class="navbar-brand" href="/">CriptoFlask</a>
-      </nav>
+    
     <br>
     <p> &nbsp Selecione as criptomoedas que você deseja cotar</p>
       <form method="POST" action = '/'>
         <fieldset>
       <div>&nbsp
-        <input type="checkbox" id="bombcrypto" name="criptomoedas" value="bombcrypto"
+        <input type="checkbox" id="Bombcrypto" name="criptomoedas" value="Bombcrypto"
                >
-        <label for="bombcrypto">Bombcrypto</label>
+        <label for="Bombcrypto">Bombcrypto</label>
       </div>
       
         <div>&nbsp
-        <input type="checkbox" id="cryptocars" name="criptomoedas" value="cryptocars">
-        <label for="cryptocars">Cryptocars</label>
+        <input type="checkbox" id="CryptoCars" name="criptomoedas" value="CryptoCars">
+        <label for="CryptoCars">Cryptocars</label>
       </div>
 
       <div>&nbsp
-        <input type="checkbox" id="cryptomotorcycle" name="criptomoedas" value="cryptomotorcycle">
-        <label for="cryptomotorcycle">Cryptomotorcycle</label>
+        <input type="checkbox" id="CryptoMotorcycle" name="criptomoedas" value="CryptoMotorcycle">
+        <label for="CryptoMotorcycle">Cryptomotorcycle</label>
       </div>
 
       <div>&nbsp
-        <input type="checkbox" id="smooth-love-potion" name="criptomoedas" value="smooth-love-potion">
-        <label for="smooth-love-potion">Smooth-Love-Potion</label>
+        <input type="checkbox" id="Smooth Love Potion" name="criptomoedas" value="Smooth Love Potion">
+        <label for="Smooth Love Potion">Smooth-Love-Potion</label>
+      </div>
+
+      <div>&nbsp
+        <input type="checkbox" id="CryptoGuards" name="criptomoedas" value="CryptoGuards">
+        <label for="CryptoGuards">CryptoGuards</label>
       </div>
 
       <div>&nbsp
@@ -46,6 +52,7 @@
       <br>&nbsp
       <input type="submit" class="btn btn-success"value="Cotar"/>
       </form>
+      
 </body>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
